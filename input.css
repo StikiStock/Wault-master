@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+
+    ul {
+        @apply grid overflow-hidden grid-cols-4 grid-rows-1 gap-4 w-[300px]
+    }
+
+    li {
+        @apply bg-[#00000025] w-[50px] h-[50px] flex justify-center items-center border border-[#ffffff25] text-white cursor-default hover:bg-[#ffffff0a] shadow-black shadow-sm m-auto
+    }
+
+    input:focus::placeholder {
+        color: transparent;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    #alertWrapper {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+@tailwind utilities;
+
