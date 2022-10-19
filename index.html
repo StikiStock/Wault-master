@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="p-0 m-0">
+
+<head>
+
+  <meta name="author" content="Arya Azizi">
+  <meta name="designer" content="Arya Azizi \ Front End">
+  <meta name="description" content="Arya Azizi \ Home">
+
+  <meta name="title" content="Arya Azizi - Front end developer">
+
+  <link rel="icon" type="image/x-icon" href="/util/favicon.ico">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+
+  <link href="./dist/output.css" rel="stylesheet">
+  <script defer src="./app.js"></script>
+
+</head>
+<body class="bg-[#181818] font-mono w-screen h-screen">
+
+<header class="bg-[#ffffff0a] fixed border-b border-[#ffffff2a] h-[35px] w-full">
+    <div class="flex justify-between w-[90%] mx-auto h-full">
+      <div class="my-auto">
+        <a href="../" class="text-sm text-gray-200 hover:text-gray-400">../</a>
+      </div>
+      <div class="my-auto text-lg text-white">
+        <span class="text-[#3ae57f]">W</span><span>ault</span>
+      </div>
+    </div>
+</header>
+
+<section class="flex h-screen">
+
+    <div class="w-full max-w-xl m-auto">
+
+      <div class="flex flex-col justify-between min-h-[60vh] md:min-h-0 md:flex-row-reverse">
+        <div class="grid overflow-hidden grid-cols-1 grid-rows-4 gap-4 h-[300px] mx-auto md:mx-0">
+          <ul class="hidden rowA">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="hidden rowB">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="hidden rowC">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="hidden rowD">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col max-w-[200px] w-full mx-auto md:mx-0 submitArea">
+          <div class="border border-[#ffffff2d] rounded-md">
+            <div class="flex flex-row w-full">
+              <input type="number" onKeyPress="if(this.value.length==4) return false;" maxlength="4"
+              placeholder="4-digit code" pattern="[0-9]{4}"
+              class="bg-[#0f0f0f] text-slate-400 text-center outline-none w-[80%] rounded-tl-md" id="vaultInput" />
+              <div class="bg-[#1b1b1b] w-[10%] border-l border-[#ffffff2d] flex">
+                <img src="./util/delete.svg" class="opacity-50 hover:opacity-100 cursor-pointer m-auto" onclick="userInput.value =''" />
+              </div>
+              <div class="bg-[#1b1b1b] w-[10%] text-center text-slate-500 chancesWrapper cursor-default border-l border-[#ffffff2d] rounded-tr-md">4</div>
+            </div>
+            <div class="h-50px]">
+              <button type="submit" class="bg-[#1b1b1b] text-slate-300 hover:text-slate-400 w-full border-t border-[#ffffff2d] rounded-b-md" id="vaultSubmit"><span class="text-slate-500">> </span>Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</section>
+
+</body>
+</html>
