@@ -6,9 +6,11 @@
   const vaultRow_2 = document.querySelector('.rowB').children
   const vaultRow_3 = document.querySelector('.rowC').children
   const vaultRow_4 = document.querySelector('.rowD').children
+
+  let clearInput = () => {
+    userInput.value = '';
+  }
   
-  let chances = 4
-  let order = 0
   const invalidChars = [
     "-",
     "+",
@@ -31,6 +33,8 @@
   }
 });
 
+  let chances = 4
+  let order = 0
 
   submitButton.addEventListener('click', () => {
 
@@ -68,8 +72,7 @@
         vaultRow_4.item(3).innerHTML = currentCode[3]
       };
 
-      userInput.value = '';
-
+      clearInput();
 
       chances--;
       document.querySelector('.chancesWrapper').innerHTML = chances
