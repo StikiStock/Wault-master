@@ -2,13 +2,12 @@
   const userInput = document.querySelector('#vaultInput')
   const submitButton = document.querySelector('#vaultSubmit')
 
-  const vaultRow_1 = document.querySelector('.rowA').children
-  const vaultRow_2 = document.querySelector('.rowB').children
-  const vaultRow_3 = document.querySelector('.rowC').children
-  const vaultRow_4 = document.querySelector('.rowD').children
-
   let clearInput = () => {
     userInput.value = '';
+  }
+
+  let randnum = (min, max) => {
+    Math.floor(Math.random() * (max - min + 1) + min)
   }
   
   const invalidChars = [
@@ -33,44 +32,37 @@
   }
 });
 
-  let chances = 4
-  let order = 0
 
-  submitButton.addEventListener('click', () => {
+  let chances = 4
+  let i, x;
+  x = 0;
+
+      
+  const rowsCh = ['A','B','C','D'].map(label => document.querySelector(`.row${label}`).children)
+  const rows = ['A','B','C','D'].map(label => document.querySelector(`.row${label}`))
+
+  let addRow = () => {
 
     let currentCode = userInput.value
 
-    if (currentCode.length === 4) {
-      order++;
 
-      if (order==1) {
-        document.querySelector('.rowA').classList.toggle('hidden');
-        vaultRow_1.item(0).innerHTML = currentCode[0]
-        vaultRow_1.item(1).innerHTML = currentCode[1]
-        vaultRow_1.item(2).innerHTML = currentCode[2]
-        vaultRow_1.item(3).innerHTML = currentCode[3]
+    // const codes = // idk how you get those? but array of arrays?
+
+    codes.forEach(
+      (code, i) => code.forEach(
+        (piece, j) => rows[i].children[j].textContent = piece
+      )
+    )
+
+    if (currentCode.length === 4) {
+
+
+
+      for (i = 0; i < rows.length; i++) {
+        rowsCh[x].item(i).innerHTML = currentCode[i];
+        rows[x].classList.remove('hidden')
+        if (i == 3) {x++}
       }
-      else if (order==2) {
-        document.querySelector('.rowB').classList.toggle('hidden');
-        vaultRow_2.item(0).innerHTML = currentCode[0]
-        vaultRow_2.item(1).innerHTML = currentCode[1]
-        vaultRow_2.item(2).innerHTML = currentCode[2]
-        vaultRow_2.item(3).innerHTML = currentCode[3]
-      }
-      else if (order==3) {
-        document.querySelector('.rowC').classList.toggle('hidden');
-        vaultRow_3.item(0).innerHTML = currentCode[0]
-        vaultRow_3.item(1).innerHTML = currentCode[1]
-        vaultRow_3.item(2).innerHTML = currentCode[2]
-        vaultRow_3.item(3).innerHTML = currentCode[3]
-      }
-      else if (order==4) {
-        document.querySelector('.rowD').classList.toggle('hidden');
-        vaultRow_4.item(0).innerHTML = currentCode[0]
-        vaultRow_4.item(1).innerHTML = currentCode[1]
-        vaultRow_4.item(2).innerHTML = currentCode[2]
-        vaultRow_4.item(3).innerHTML = currentCode[3]
-      };
 
       clearInput();
 
@@ -85,4 +77,12 @@
       };
     }
 
-  })
+
+    
+
+
+
+
+
+
+  }

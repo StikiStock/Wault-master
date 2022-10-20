@@ -36,30 +36,29 @@
 </header>
 
 <section class="flex h-screen">
-
     <div class="w-full max-w-xl m-auto">
 
       <div class="flex flex-col justify-between min-h-[60vh] md:min-h-0 md:flex-row-reverse">
         <div class="grid overflow-hidden grid-cols-1 grid-rows-4 gap-4 h-[300px] mx-auto md:mx-0">
-          <ul class="hidden rowA">
+          <ul class="rowA hidden">
             <li></li>
             <li></li>
             <li></li>
             <li></li>
           </ul>
-          <ul class="hidden rowB">
+          <ul class="rowB hidden">
             <li></li>
             <li></li>
             <li></li>
             <li></li>
           </ul>
-          <ul class="hidden rowC">
+          <ul class="rowC hidden">
             <li></li>
             <li></li>
             <li></li>
             <li></li>
           </ul>
-          <ul class="hidden rowD">
+          <ul class="rowD hidden">
             <li></li>
             <li></li>
             <li></li>
@@ -75,14 +74,14 @@
                 class="bg-[#0f0f0f] text-slate-400 text-center outline-none w-[70%] rounded-tl-md" id="vaultInput" />
               
               <div class="bg-[#212122] w-[15%] border-l border-[#ffffff2d] flex">
-                <i class="m-auto text-xs fa-regular fa-delete-left text-slate-500 hover:text-slate-400 hover:cursor-pointer" onclick="clearInput();"></i>
+                <i class="m-auto text-sm fa-regular fa-eraser text-slate-500 hover:text-slate-400 hover:cursor-pointer" onclick="clearInput();"></i>
               </div>
               <div class="bg-[#212122] w-[15%] cursor-default border-l border-[#ffffff2d] rounded-tr-md flex">
                 <span class="m-auto text-slate-500 chancesWrapper">4</span>
               </div>
             </div>
             <button type="submit" class="bg-[#212122] text-slate-300 hover:text-slate-400 w-full border-t
-            border-[#ffffff2d] rounded-b-md" id="vaultSubmit">Confirm</button>
+            border-[#ffffff2d] rounded-b-md" id="vaultSubmit" onclick="addRow();">Confirm</button>
           </div>
         </div>
       </div>
