@@ -45,18 +45,7 @@
 
     let currentCode = userInput.value
 
-
-    // const codes = // idk how you get those? but array of arrays?
-
-    codes.forEach(
-      (code, i) => code.forEach(
-        (piece, j) => rows[i].children[j].textContent = piece
-      )
-    )
-
     if (currentCode.length === 4) {
-
-
 
       for (i = 0; i < rows.length; i++) {
         rowsCh[x].item(i).innerHTML = currentCode[i];
