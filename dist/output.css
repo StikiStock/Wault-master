@@ -616,10 +616,6 @@ li {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-li:hover {
-  background-color: #ffffff0a;
-}
-
 input:focus::-moz-placeholder {
   color: transparent;
 }
@@ -644,6 +640,10 @@ input[type=number] {
 
 .m-0 {
   margin: 0px;
+}
+
+.m-1 {
+  margin: 0.25rem;
 }
 
 .m-auto {
@@ -688,6 +688,10 @@ input[type=number] {
   height: 100%;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-\[300px\] {
   height: 300px;
 }
@@ -708,12 +712,20 @@ input[type=number] {
   width: 90%;
 }
 
+.w-\[14px\] {
+  width: 14px;
+}
+
 .w-\[70\%\] {
   width: 70%;
 }
 
 .w-\[15\%\] {
   width: 15%;
+}
+
+.w-\[0\.9rem\] {
+  width: 0.9rem;
 }
 
 .max-w-xl {
@@ -847,6 +859,10 @@ input[type=number] {
   line-height: 1.75rem;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .text-slate-300 {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
@@ -936,6 +952,10 @@ input[type=number] {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.hover\:opacity-\[85\%\]:hover {
+  opacity: 85%;
+}
+
 @media (min-width: 768px) {
   .md\:mx-0 {
     margin-left: 0px;
@@ -950,4 +970,3 @@ input[type=number] {
     flex-direction: row-reverse;
   }
 }
-

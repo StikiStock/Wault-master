@@ -8,7 +8,7 @@
     }
 
     li {
-        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#ffffff25] text-[#ffffff85] text-lg cursor-default hover: bg-[#ffffff0a] shadow-black shadow-sm m-auto
+        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#ffffff25] text-[#ffffff85] text-lg cursor-default shadow-black shadow-sm m-auto
     }
 
     input:focus::placeholder {
@@ -23,6 +23,15 @@
 
     input[type=number] {
         -moz-appearance: textfield;
+    }
+
+    .flip {
+        -webkit-transform: scaleX(-1);
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
     }
 }
 
