@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -642,10 +642,6 @@ input[type=number] {
   margin: 0px;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
 .m-auto {
   margin: auto;
 }
@@ -658,6 +654,14 @@ input[type=number] {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .flex {
@@ -736,8 +740,8 @@ input[type=number] {
   max-width: 200px;
 }
 
-.translate-x-1 {
-  --tw-translate-x: 0.25rem;
+.rotate-\[315deg\] {
+  --tw-rotate: 315deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -952,8 +956,8 @@ input[type=number] {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
-.hover\:opacity-\[85\%\]:hover {
-  opacity: 85%;
+.hover\:opacity-75:hover {
+  opacity: 0.75;
 }
 
 @media (min-width: 768px) {

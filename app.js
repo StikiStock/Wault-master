@@ -52,9 +52,7 @@ const rows = ['A', 'B', 'C', 'D'].map(label => document.querySelector(`.row${lab
 
 const vaultCode = String(getRandom(1000, 9999))
 
-console.log(vaultCode)
-console.log(vaultCode[0])
-
+document.querySelector('#vaultPassword').innerHTML = vaultCode
 
 let addRow = () => {
 
@@ -66,9 +64,11 @@ let addRow = () => {
       rowsCh[x].item(i).innerHTML = currentCode[i];
       rows[x].classList.remove('hidden')
       
-      if (rowsCh[x].item(i).innerHTML == vaultCode[i]) {
-        console.log('hello')
+      if (currentCode[i] == vaultCode[i]) {
+        rowsCh[x].item(i).style.background = '#00475e'
       }
+
+
     }
 
     
