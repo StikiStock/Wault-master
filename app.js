@@ -1,16 +1,25 @@
-let clearInput = () => {
+const clearInput = () => {
   userInput.value = '';
+}
+
+const showRefresh = () => {
+  document.querySelector('#refresh').classList.remove('invisible')
 }
 
 const userInput = document.querySelector('#vaultInput')
 const submitButton = document.querySelector('#vaultSubmit')
+const alertSection = document.querySelector('#alert')
 
-let disableAll = () => {
+const disableAll = () => {
   userInput.setAttribute('placeholder', 'out of tries.');
   userInput.setAttribute('disabled', '');
   submitButton.setAttribute('disabled', '');
   submitButton.classList.toggle('hover:text-slate-400');
   submitButton.classList.replace('text-slate-300', 'text-slate-400');
+}
+
+const displayAlert = () => {
+  alertSection.classList.remove('hidden')
 }
 
 function getRandom(min, max) {
@@ -52,8 +61,6 @@ const rows = ['A', 'B', 'C', 'D'].map(label => document.querySelector(`.row${lab
 
 const vaultCode = String(getRandom(1000, 9999))
 
-document.querySelector('#vaultPassword').innerHTML = vaultCode
-
 let addRow = () => {
 
   let currentCode = userInput.value
@@ -66,23 +73,37 @@ let addRow = () => {
       
       if (currentCode[i] == vaultCode[i]) {
         rowsCh[x].item(i).style.background = '#00475e'
+        rowsCh[x].item(i).setAttribute('correct', 'true')
       }
 
+      else if (vaultCode.includes(currentCode[i]) == true) {
+        rowsCh[x].item(i).style.background = '#6b6600';
+        
+      }
 
     }
-
     
-
-    
-
     chances--;
+
     document.querySelector('.chancesWrapper').innerHTML = chances
 
     if (chances == 0) {
-      disableAll();
+      disableAll()
+      document.querySelector('#alertTitle').innerHTML = 'Unlucky'
+      document.querySelector('#alertDesc').innerHTML = 'You Failed to Guess the Wault Code.'
+      displayAlert()
+      showRefresh()
     };
 
-    clearInput();
+    if (currentCode == vaultCode) {
+      disableAll()
+      document.querySelector('#alertTitle').innerHTML = 'Victory'
+      document.querySelector('#alertDesc').innerHTML = 'Well done, Your Guess was Correct.'
+      displayAlert()
+      showRefresh()
+    }
+
+    clearInput()
     x++;
   }
 }

@@ -16,18 +16,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wault - Home</title>
 
-    <link rel="stylesheet" href="all.min.css">
     <link href="./dist/output.css" rel="stylesheet">
     <script defer src="./app.js"></script>
 
   </head>
 
-  <body class="bg-[#19191A] font-mono w-screen h-screen">
+  <body class="bg-[#24292E] font-mono w-screen h-screen">
 
-    <header class="bg-[#ffffff0a] fixed border-b border-[#ffffff2a] h-[35px] w-full">
+    <header class="bg-[#1D2125] fixed border-b border-[#141414] h-[35px] w-full">
       <div class="flex justify-between w-[90%] mx-auto h-full">
         <div class="my-auto">
           <a href="../" class="text-sm text-gray-200 hover:text-gray-400">../</a>
+        </div>
+        <div class="flex invisible cursor-pointer hover:opacity-75" id="refresh" onclick="location.reload()">
+          <img class="w-[15px] h-auto my-auto" src="util/refresh.svg" />
         </div>
         <div class="my-auto text-lg text-white flex font-medium">
           <img class="w-[14px] mr-1 h-auto rotate-[315deg]" src="./util/key.svg" />
@@ -68,27 +70,48 @@
           </div>
 
           <div class="flex flex-col max-w-[200px] w-full mx-auto md:mx-0 submitArea">
-            <div class="border border-[#ffffff2d] rounded-md shadow-black shadow">
+            <div class="border border-[#141414] rounded-md">
               <div class="flex flex-row w-full">
                 <input type="number" onKeyPress="if(this.value.length==4) return false;" maxlength="4"
                   placeholder="4-digit code" pattern="[0-9]{4}"
-                  class="bg-[#0f0f0f] text-slate-400 text-center outline-none w-[70%] rounded-tl-md" id="vaultInput" />
+                  class="bg-[#171A1D] text-slate-400 text-center outline-none w-[70%] rounded-tl-md" id="vaultInput" />
 
-                <div class="bg-[#212122] w-[15%] border-l border-[#ffffff2d] flex">
+                <div class="bg-[#1D2125] w-[15%] border-l border-[#141414] flex">
                   <img class="m-auto w-[0.9rem] h-auto hover:cursor-pointer hover:opacity-75" src="util/eraser.svg" onclick="clearInput();"></i>
                 </div>
-                <div class="bg-[#212122] w-[15%] cursor-default border-l border-[#ffffff2d] rounded-tr-md flex">
+                <div class="bg-[#1D2125] w-[15%] cursor-default border-l border-[#141414] rounded-tr-md flex">
                   <span class="m-auto text-slate-400 chancesWrapper">4</span>
                 </div>
               </div>
-              <button type="submit" class="bg-[#212122] text-slate-300 hover:text-slate-400 w-full border-t
-              border-[#ffffff2d] rounded-b-md" id="vaultSubmit" onclick="addRow();">Confirm</button>
+              <button type="submit" class="bg-[#1D2125] text-slate-300 hover:text-slate-400 w-full border-t
+              border-[#141414] rounded-b-md" id="vaultSubmit" onclick="addRow();">Confirm</button>
             </div>
-            <div class="text-center text-slate-300 mt-5">Vault Password: <span id="vaultPassword"></span></div>
           </div>
+
         </div>
 
       </div>
+    </section>
+
+    <section id="alert" class="absolute inset-0 z-[99] bg-[#00000025] backdrop-blur hidden">
+
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="flex flex-col w-[250px] border border-[#141414] rounded-md bg-[#1D2125]">
+          <div class="flex flex-col gap-1 py-2">
+            <div class="text-slate-100 text-md text-center font-medium" id="alertTitle"></div>
+            <div class="text-slate-300 rounded-t-md text-center text-sm max-w-[80%] mx-auto" id="alertDesc"></div>
+          </div>
+          <div class="flex justify-around border-t border-[#141414] rounded-b-md">
+            <div class="w-full h-full border-r border-[#141414] flex py-1">
+              <button class="text-slate-200 hover:text-slate-300 mx-auto" onclick="alertSection.classList.toggle('hidden');">Ok</button>
+            </div>
+            <div class="w-full h-full flex py-1">
+              <button class="text-slate-200 hover:text-slate-300 mx-auto" onclick="document.querySelector('#refresh').click()">Retry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </body>
