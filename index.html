@@ -21,9 +21,10 @@
   <script defer src="./app.js"></script>
 
 </head>
+
 <body class="bg-[#19191A] font-mono w-screen h-screen">
 
-<header class="bg-[#ffffff0a] fixed border-b border-[#ffffff2a] h-[35px] w-full">
+  <header class="bg-[#ffffff0a] fixed border-b border-[#ffffff2a] h-[35px] w-full">
     <div class="flex justify-between w-[90%] mx-auto h-full">
       <div class="my-auto">
         <a href="../" class="text-sm text-gray-200 hover:text-gray-400">../</a>
@@ -33,9 +34,9 @@
         <span class="text-[#3ae57f]">W</span><span>ault</span>
       </div>
     </div>
-</header>
+  </header>
 
-<section class="flex h-screen">
+  <section class="flex h-screen">
     <div class="w-full max-w-xl m-auto">
 
       <div class="flex flex-col justify-between min-h-[60vh] md:min-h-0 md:flex-row-reverse">
@@ -69,12 +70,13 @@
         <div class="flex flex-col max-w-[200px] w-full mx-auto md:mx-0 submitArea">
           <div class="border border-[#ffffff2d] rounded-md shadow-black shadow">
             <div class="flex flex-row w-full">
-                <input type="number" onKeyPress="if(this.value.length==4) return false;" maxlength="4"
+              <input type="number" onKeyPress="if(this.value.length==4) return false;" maxlength="4"
                 placeholder="4-digit code" pattern="[0-9]{4}"
                 class="bg-[#0f0f0f] text-slate-400 text-center outline-none w-[70%] rounded-tl-md" id="vaultInput" />
-              
+
               <div class="bg-[#212122] w-[15%] border-l border-[#ffffff2d] flex">
-                <i class="m-auto text-sm fa-regular fa-eraser text-slate-500 hover:text-slate-400 hover:cursor-pointer" onclick="clearInput();"></i>
+                <i class="m-auto text-sm fa-regular fa-eraser text-slate-500 hover:text-slate-400 hover:cursor-pointer"
+                  onclick="clearInput();"></i>
               </div>
               <div class="bg-[#212122] w-[15%] cursor-default border-l border-[#ffffff2d] rounded-tr-md flex">
                 <span class="m-auto text-slate-500 chancesWrapper">4</span>
@@ -87,7 +89,8 @@
       </div>
 
     </div>
-</section>
+  </section>
 
 </body>
+
 </html>

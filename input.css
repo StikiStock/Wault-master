@@ -8,7 +8,7 @@
     }
 
     li {
-        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#ffffff25] text-[#ffffff85] text-xl cursor-default hover:bg-[#ffffff0a] shadow-black shadow-sm m-auto
+        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#ffffff25] text-[#ffffff85] text-lg cursor-default hover: bg-[#ffffff0a] shadow-black shadow-sm m-auto
     }
 
     input:focus::placeholder {
@@ -27,4 +27,3 @@
 }
 
 @tailwind utilities;
-
