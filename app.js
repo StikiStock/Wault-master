@@ -1,7 +1,4 @@
 const clearInput = () => {
-<<<<<<< Updated upstream
-  userInput.value = '';
-=======
   userInput.value = "";
 };
 
@@ -47,7 +44,6 @@ const flipTo = (el, top, right, bottom, left, width, height) => {
           fill: 'both'
   });
 
->>>>>>> Stashed changes
 }
 
 const showRefresh = () => {
