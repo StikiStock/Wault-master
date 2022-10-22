@@ -1,3 +1,5 @@
+console.log('Dear cheaters, You are free to cheat UNTIL the very day of introducing node.js to the Wault ;) Have Fun')
+
 const clearInput = () => {
   userInput.value = "";
 };
@@ -46,25 +48,24 @@ const flipTo = (el, top, right, bottom, left, width, height) => {
 
 }
 
-const showRefresh = () => {
-  document.querySelector('#refresh').classList.remove('invisible')
-}
 
-const userInput = document.querySelector('#vaultInput')
-const submitButton = document.querySelector('#vaultSubmit')
-const alertSection = document.querySelector('#alert')
+const waultLogo = '<div class="inline-block mx-1"><div class="text-lg flex text-white font-medium"><img class="w-[14px] mr-1 h-auto rotate-[315deg]" src="./util/key.svg" /><span class="text-[#3ae57f]">W</span><span>ault</span></div></div>'
+
+const userInput = document.querySelector("#vaultInput");
+const submitButton = document.querySelector("#vaultSubmit");
+const alertSection = document.querySelector("#alert");
 
 const disableAll = () => {
-  userInput.setAttribute('placeholder', 'out of tries.');
-  userInput.setAttribute('disabled', '');
-  submitButton.setAttribute('disabled', '');
-  submitButton.classList.toggle('hover:text-slate-400');
-  submitButton.classList.replace('text-slate-300', 'text-slate-400');
-}
+  userInput.setAttribute("placeholder", "out of tries.");
+  userInput.setAttribute("disabled", "");
+  submitButton.setAttribute("disabled", "");
+  submitButton.classList.toggle("hover:text-slate-400");
+  submitButton.classList.replace("text-slate-300", "text-slate-400");
+};
 
 const displayAlert = () => {
-  alertSection.classList.remove('hidden')
-}
+  alertSection.classList.remove("hidden");
+};
 
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -72,18 +73,14 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const invalidChars = [
-  "-",
-  "+",
-  "e",
-];
+const invalidChars = ["-", "+", "e"];
 
-userInput.addEventListener('keyup', (event) => {
+userInput.addEventListener("keyup", (event) => {
   event.preventDefault();
   if (event.keyCode === 13) {
     submitButton.click();
   }
-})
+});
 
 userInput.addEventListener("input", function () {
   this.value = this.value.replace(/[e\+\-]/gi, "");
@@ -95,59 +92,56 @@ userInput.addEventListener("keydown", function (e) {
   }
 });
 
-
-let chances = 4
+let chances = 4;
 let i, x;
 x = 0;
 
-const rowsCh = ['A', 'B', 'C', 'D'].map(label => document.querySelector(`.row${label}`).children)
-const rows = ['A', 'B', 'C', 'D'].map(label => document.querySelector(`.row${label}`))
+const rowsCh = ["A", "B", "C", "D"].map(
+  (label) => document.querySelector(`.row${label}`).children
+);
+const rows = ["A", "B", "C", "D"].map((label) =>
+  document.querySelector(`.row${label}`)
+);
 
-const vaultCode = String(getRandom(1000, 9999))
+const vaultCode = String(getRandom(1000, 9999));
 
 let addRow = () => {
-
-  let currentCode = userInput.value
+  let currentCode = userInput.value;
 
   if (currentCode.length === 4) {
-
     for (i = 0; i < currentCode.length; i++) {
       rowsCh[x].item(i).innerHTML = currentCode[i];
-      rows[x].classList.remove('hidden')
-      
+      rows[x].classList.remove("hidden");
+
       if (currentCode[i] == vaultCode[i]) {
-        rowsCh[x].item(i).style.background = '#00475e'
-        rowsCh[x].item(i).setAttribute('correct', 'true')
+        rowsCh[x].item(i).style.background = "#00475e";
+        rowsCh[x].item(i).setAttribute("correct", "true");
+      } else if (vaultCode.includes(currentCode[i]) == true) {
+        rowsCh[x].item(i).style.background = "#6b6600";
       }
-
-      else if (vaultCode.includes(currentCode[i]) == true) {
-        rowsCh[x].item(i).style.background = '#6b6600';
-        
-      }
-
     }
-    
+
     chances--;
 
-    document.querySelector('.chancesWrapper').innerHTML = chances
+    document.querySelector(".chancesWrapper").innerHTML = chances;
 
     if (chances == 0) {
-      disableAll()
-      document.querySelector('#alertTitle').innerHTML = 'Unlucky'
-      document.querySelector('#alertDesc').innerHTML = 'You Failed to Guess the Wault Code.'
-      displayAlert()
-      showRefresh()
-    };
-
-    if (currentCode == vaultCode) {
-      disableAll()
-      document.querySelector('#alertTitle').innerHTML = 'Victory'
-      document.querySelector('#alertDesc').innerHTML = 'Well done, Your Guess was Correct.'
-      displayAlert()
-      showRefresh()
+      disableAll();
+      document.querySelector("#alertTitle").innerHTML = "Unlucky";
+      document.querySelector("#alertDesc").innerHTML =
+        "Nex time, You will guess the" + waultLogo + "Code.";
+      displayAlert();
     }
 
-    clearInput()
+    if (currentCode == vaultCode) {
+      disableAll();
+      document.querySelector("#alertTitle").innerHTML = "Victory";
+      document.querySelector("#alertDesc").innerHTML =
+        "Well done, You Guessed the" + waultLogo + "Code";
+      displayAlert();
+    }
+
+    clearInput();
     x++;
   }
-}
+};
