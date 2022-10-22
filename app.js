@@ -1,5 +1,53 @@
 const clearInput = () => {
+<<<<<<< Updated upstream
   userInput.value = '';
+=======
+  userInput.value = "";
+};
+
+const flipTo = (el, top, right, bottom, left, width, height) => {
+  const element = document.querySelector(`#${el}`)
+
+  const shortDirections = ["t", "r", "b", "l"]
+  const Directions = [top, right, bottom, left]
+
+
+  const first = element.getBoundingClientRect(); //shoroo
+
+  let d;
+  for(d = 0; d < 4; d++) {
+    if (Directions[d] != undefined && Directions[d] != '') {
+      element.classList.toggle(`m${shortDirections[d]}-[${Directions[d]}]`)
+    }
+  }
+
+  if (width !== undefined && height !== undefined) {
+    element.classList.toggle(`w-[${width}]`)
+    element.classList.toggle(`h-[${height}]`)
+  }
+
+  const last = element.getBoundingClientRect(); //payan
+
+  const deltaX = first.left - last.left
+  const deltaY = first.top - last.top
+  const deltaW = first.width / last.width
+  const deltaH = first.height / last.height
+
+  element.animate([{
+
+      transform: `
+          translate(${deltaX}px, ${deltaY}px)
+          scale(${deltaW}, ${deltaH})
+          `
+      }, {
+          transform: 'none'
+      }], {
+          duration: 300,
+          easing: 'ease-in-out',
+          fill: 'both'
+  });
+
+>>>>>>> Stashed changes
 }
 
 const showRefresh = () => {
