@@ -8,7 +8,7 @@
     }
 
     li {
-        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#141414] text-[#ffffff85] text-lg cursor-default m-auto
+        @apply bg-[#00000025] w-[46px] h-[46px] flex justify-center items-center border border-[#141414] text-[#dbdbdb] text-lg cursor-default m-auto
     }
 
     input:focus::placeholder {
