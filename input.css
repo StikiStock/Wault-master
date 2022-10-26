@@ -3,8 +3,17 @@
 
 @layer components {
 
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
     ul {
-        @apply grid overflow-hidden grid-cols-4 grid-rows-1 gap-4 w-[300px] max-h-[50px]
+        @apply grid overflow-hidden grid-cols-4 grid-rows-1 gap-4 w-[300px] max-h-[50px] animate-[fadeIn_150ms_ease-in-out]
     }
 
     li {

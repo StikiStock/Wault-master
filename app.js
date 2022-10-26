@@ -4,6 +4,8 @@ const clearInput = () => {
   userInput.value = "";
 };
 
+// my custom flip framework (unused, so far)
+
 const flipTo = (el, top, right, bottom, left, width, height) => {
   const element = document.querySelector(`#${el}`)
 
@@ -49,7 +51,7 @@ const flipTo = (el, top, right, bottom, left, width, height) => {
 }
 
 
-const waultLogo = '<div class="inline-block mx-1"><div class="text-lg flex text-white font-medium"><img class="w-[14px] mr-1 h-auto rotate-[315deg]" src="./util/key.svg" /><span class="text-[#3ae57f]">W</span><span>ault</span></div></div>'
+const waultLogo = '<div class="inline-block mx-1"><div class="text-lg flex text-white font-medium"><img class="w-[14px] mr-1 h-auto" src="./util/key.svg" /><span class="text-[#3ae57f]">W</span><span>ault</span></div></div>'
 
 const userInput = document.querySelector("#vaultInput");
 const submitButton = document.querySelector("#vaultSubmit");
@@ -73,7 +75,8 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const invalidChars = ["-", "+", "e"];
+/* accept 'enter' button on keyboard as an
+alternative to clicking the submit button */
 
 userInput.addEventListener("keyup", (event) => {
   event.preventDefault();
@@ -81,6 +84,13 @@ userInput.addEventListener("keyup", (event) => {
     submitButton.click();
   }
 });
+
+
+/* the following characters are
+accepted in number-only inputs
+so i had to make a workaround */
+
+const invalidChars = ["-", "+", "e"];
 
 userInput.addEventListener("input", function () {
   this.value = this.value.replace(/[e\+\-]/gi, "");
@@ -92,13 +102,14 @@ userInput.addEventListener("keydown", function (e) {
   }
 });
 
-let chances = 4;
-let i, x;
-x = 0;
+let attempts = 4;
+let i, order;
+order = 0;
 
 const rowsCh = ["A", "B", "C", "D"].map(
   (label) => document.querySelector(`.row${label}`).children
 );
+
 const rows = ["A", "B", "C", "D"].map((label) =>
   document.querySelector(`.row${label}`)
 );
@@ -110,38 +121,48 @@ let addRow = () => {
 
   if (currentCode.length === 4) {
     for (i = 0; i < currentCode.length; i++) {
-      rowsCh[x].item(i).innerHTML = currentCode[i];
-      rows[x].classList.remove("hidden");
+      rowsCh[order].item(i).innerHTML = currentCode[i];
+      rows[order].classList.remove("hidden");
+
+      // check wether it has to be a yellow or blue square
 
       if (currentCode[i] == vaultCode[i]) {
-        rowsCh[x].item(i).style.background = "#00475e";
-        rowsCh[x].item(i).setAttribute("correct", "true");
-      } else if (vaultCode.includes(currentCode[i]) == true) {
-        rowsCh[x].item(i).style.background = "#6b6600";
+        rowsCh[order].item(i).style.background = "#00475e";
       }
+      
+      else if (vaultCode.includes(currentCode[i]) == true) {
+        rowsCh[order].item(i).style.background = "#6b6600";
+      }
+
     }
 
-    chances--;
+    // decrease the user attempts
 
-    document.querySelector(".chancesWrapper").innerHTML = chances;
+    attempts--;
+    document.querySelector("#attemptsWrapper").innerHTML = attempts;
 
-    if (chances == 0) {
-      disableAll();
-      document.querySelector("#alertTitle").innerHTML = "Unlucky";
-      document.querySelector("#alertDesc").innerHTML =
-        "Nex time, You will guess the" + waultLogo + "Code.";
-      displayAlert();
+    // checks wether it has to display win or lose
+
+    if (attempts == 0) {
+      setTimeout(() => {
+        disableAll();
+        document.querySelector("#alertTitle").innerHTML = "Unlucky";
+        document.querySelector("#alertDesc").innerHTML = "Next time, You will guess the" + waultLogo + "Code.";
+        displayAlert();
+        document.querySelector('#vaultPassword').innerHTML = 'The Wault Code Was ' + vaultCode
+      }, 300);
     }
 
     if (currentCode == vaultCode) {
-      disableAll();
-      document.querySelector("#alertTitle").innerHTML = "Victory";
-      document.querySelector("#alertDesc").innerHTML =
-        "Well done, You Guessed the" + waultLogo + "Code";
-      displayAlert();
+      setTimeout(() => {
+        disableAll();
+        document.querySelector("#alertTitle").innerHTML = "Victory";
+        document.querySelector("#alertDesc").innerHTML = "Well done, You've Guessed the" + waultLogo + "Code.";
+        displayAlert();
+      }, 300);
     }
 
     clearInput();
-    x++;
+    order++;
   }
 };

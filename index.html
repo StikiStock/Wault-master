@@ -28,15 +28,17 @@
       <div class="my-auto">
         <a href="../" class="text-sm text-gray-200 hover:text-gray-400">../</a>
       </div>
-      <div class="flex cursor-pointer hover:opacity-75" id="refresh" onclick="location.reload()">
-        <img class="w-[15px] h-auto my-auto" src="util/refresh.svg" />
+      <div class="flex" id="refresh" onclick="location.reload()">
+        <img class="w-[22px] h-auto my-auto hover:animate-spin cursor-pointer p-1" src="util/refresh.svg" />
       </div>
       <div class="my-auto text-lg text-white flex font-medium">
-        <img class="w-[14px] mr-1 h-auto rotate-[315deg]" src="./util/key.svg" />
+        <img class="w-[14px] mr-1 h-auto" src="./util/key.svg" />
         <span class="text-[#3ae57f]">W</span><span>ault</span>
       </div>
     </div>
   </header>
+  
+
 
   <section class="flex h-screen">
     <div class="w-full max-w-xl m-auto">
@@ -44,28 +46,28 @@
       <div class="flex flex-col justify-between min-h-[60vh] md:min-h-0 md:flex-row-reverse">
         <div class="grid overflow-hidden grid-cols-1 grid-rows-4 gap-4 h-[300px] mx-auto md:mx-0">
           <ul class="rowA hidden">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
           </ul>
           <ul class="rowB hidden">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
           </ul>
           <ul class="rowC hidden">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
           </ul>
           <ul class="rowD hidden">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
+            <li exists=""></li>
           </ul>
         </div>
 
@@ -73,7 +75,7 @@
           <div class="border border-[#141414] rounded-md">
             <div class="flex flex-row w-full">
               <input type="number" onKeyPress="if(this.value.length==4) return false;" maxlength="4"
-                placeholder="4-digit code" pattern="[0-9]{4}"
+                placeholder="4-digit code" pattern="[0-9]{4}" autofocus
                 class="bg-[#171A1D] text-slate-400 text-center outline-none w-full rounded-tl-md" id="vaultInput" />
 
               <div class="bg-[#1D2125] w-[15%] border-l border-[#141414] flex">
@@ -81,12 +83,13 @@
                   onclick="clearInput();"></i>
               </div>
               <div class="bg-[#1D2125] w-[15%] cursor-default border-l border-[#141414] rounded-tr-md flex">
-                <span class="m-auto text-slate-400 chancesWrapper">4</span>
+                <span class="m-auto text-slate-400" id="attemptsWrapper">4</span>
               </div>
             </div>
             <button type="submit" class="bg-[#1D2125] text-slate-300 hover:text-slate-400 w-full border-t
               border-[#141414] rounded-b-md" id="vaultSubmit" onclick="addRow();">Confirm</button>
           </div>
+          <div class="text-slate-300 text-center mt-5" id="vaultPassword"></div>
         </div>
 
       </div>
@@ -96,10 +99,10 @@
 
   <section id="alert" class="absolute inset-0 z-[99] bg-[#00000025] backdrop-blur hidden">
 
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3" id="flipper">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 animate-[fadeIn_150ms_ease-in-out]" id="flipper">
       <div class="flex flex-col w-[250px] border border-[#141414] rounded-md bg-[#1D2125]">
         <div class="flex flex-col gap-1 py-2">
-          <div class="text-slate-100 text-md text-center font-medium" id="alertTitle"></div>
+          <div class="text-slate-100 text-md text-center font-bold" id="alertTitle"></div>
           <div class="text-slate-300 rounded-t-md text-center text-sm max-w-[80%] mx-auto" id="alertDesc"></div>
         </div>
         <div class="flex justify-around border-t border-[#141414] rounded-b-md">
