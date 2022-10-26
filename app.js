@@ -144,20 +144,20 @@ let addRow = () => {
     // checks wether it has to display win or lose
 
     if (attempts == 0) {
+      disableAll();
+      document.querySelector("#alertTitle").innerHTML = "Unlucky";
+      document.querySelector("#alertDesc").innerHTML = "Next time, You will guess the" + waultLogo + "Code.";
+      document.querySelector('#vaultPassword').innerHTML = 'The Wault Code Was ' + vaultCode
       setTimeout(() => {
-        disableAll();
-        document.querySelector("#alertTitle").innerHTML = "Unlucky";
-        document.querySelector("#alertDesc").innerHTML = "Next time, You will guess the" + waultLogo + "Code.";
         displayAlert();
-        document.querySelector('#vaultPassword').innerHTML = 'The Wault Code Was ' + vaultCode
       }, 300);
     }
 
     if (currentCode == vaultCode) {
+      disableAll();
+      document.querySelector("#alertTitle").innerHTML = "Victory";
+      document.querySelector("#alertDesc").innerHTML = "Well done, You've Guessed the" + waultLogo + "Code.";
       setTimeout(() => {
-        disableAll();
-        document.querySelector("#alertTitle").innerHTML = "Victory";
-        document.querySelector("#alertDesc").innerHTML = "Well done, You've Guessed the" + waultLogo + "Code.";
         displayAlert();
       }, 300);
     }
