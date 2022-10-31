@@ -930,8 +930,39 @@ input[type=number] {
   background-color: rgb(23 26 29 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#00000025\] {
   background-color: #00000025;
+}
+
+.bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.bg-\[\#3ae57f\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(58 229 127 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#3ae57f2d\] {
+  background-color: #3ae57f2d;
+}
+
+.bg-\[\#3ae57e96\] {
+  background-color: #3ae57e96;
+}
+
+.bg-\[rgba\(58\2c 229\2c 126\2c 0\.59\)\] {
+  background-color: rgba(58,229,126,0.59);
+}
+
+.bg-\[rgba\(58\2c 229\2c 126\)\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(58 229 126 / var(--tw-bg-opacity));
 }
 
 .p-0 {

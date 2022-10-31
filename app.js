@@ -1,8 +1,20 @@
 console.log('Dear cheaters, You are free to cheat UNTIL the very day of introducing node.js to the Wault ;) Have Fun')
 
+
+
 const clearInput = () => {
   userInput.value = "";
 };
+
+function replaceChar(origString, replaceChar, index) {
+  let newStringArray = origString.split("");
+
+  newStringArray[index] = replaceChar;
+
+  let newString = newStringArray.join("");
+
+  return newString;
+}
 
 // my custom flip framework (unused, so far)
 
@@ -50,7 +62,6 @@ const flipTo = (el, top, right, bottom, left, width, height) => {
 
 }
 
-
 const waultLogo = '<div class="inline-block mx-1"><div class="text-lg flex text-white font-medium"><img class="w-[14px] mr-1 h-auto" src="./util/key.svg" /><span class="text-[#3ae57f]">W</span><span>ault</span></div></div>'
 
 const userInput = document.querySelector("#vaultInput");
@@ -74,6 +85,7 @@ function getRandom(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 /* accept 'enter' button on keyboard as an
 alternative to clicking the submit button */
@@ -120,7 +132,7 @@ let addRow = () => {
   let currentCode = userInput.value;
 
   if (currentCode.length === 4) {
-    for (i = 0; i < currentCode.length; i++) {
+    for (i = 0; i < 4; i++) {
       rowsCh[order].item(i).innerHTML = currentCode[i];
       rows[order].classList.remove("hidden");
 
@@ -133,6 +145,8 @@ let addRow = () => {
       else if (vaultCode.includes(currentCode[i]) == true) {
         rowsCh[order].item(i).style.background = "#6b6600";
       }
+
+      
 
     }
 
