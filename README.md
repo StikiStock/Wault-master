@@ -2,6 +2,10 @@
 # Wault-Master
 A TailwindCSS based Javascript game in which the user must guess the completely random vault code in order to win.
 
+<p align="center" style="text-align: center;">
+ <img src='https://stiki.ir/projects/Wault-master/util/waultmaster.png'/>
+</p>
+
 # Instructions
 
 To play this game, keep the following in mind:
