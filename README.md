@@ -6,6 +6,18 @@ A TailwindCSS based Javascript game in which the user must guess the completely 
  <img src='https://stiki.ir/projects/Wault-master/util/waultmaster.png'/>
 </p>
 
+## Features
+
+- Fully Responsive (Cross-platform)
+- Written in Tailwind and Pure JS.
+- IOS-Like design.
+- Dark mode. (no toggle, yet.)
+
+
+## Demo
+
+A Demo with latest version is available at [My Website](https://stiki.ir).
+
 # Instructions
 
 To play this game, keep the following in mind:
@@ -15,7 +27,6 @@ To play this game, keep the following in mind:
 - If the number you provided contains a yellow digit, this indicates that the yellow digit EXISTS in the vault code but is not in the correct location.
 - On the other hand, if the number you supplied contains a blue digit, it signifies that the blue digit exists in the vault code and is in the correct location.
 - A no-color digit indicates that the digit does not exist in the vault code.
-
 
 ## Known issues
 
@@ -37,16 +48,3 @@ It appears that a few "bugs" exist. Although I don't call them bugs because they
 Contributions are always welcome!
 
 Feel free to open a pull request at any time.
-
-
-## Features
-
-- Fully Responsive (Cross-platform)
-- Written in Tailwind and Pure JS.
-- IOS-Like design.
-- Dark mode. (no toggle, yet.)
-
-
-## Demo
-
-A Demo with latest version is available at [My Website](https://stiki.ir).
