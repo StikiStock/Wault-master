@@ -16,7 +16,7 @@ A TailwindCSS based Javascript game in which the user must guess the completely 
 
 ## Demo
 
-A Demo with latest version is available at [My Website](https://stiki.ir).
+A Demo with latest version is available at [My Website](https://stiki.ir/projects/Wault-master/).
 
 # Instructions
 
